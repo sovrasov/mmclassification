@@ -15,6 +15,7 @@ from .swin_transformer import SwinTransformer
 from .tnt import TNT
 from .vgg import VGG
 from .vision_transformer import VisionTransformer
+from .ptcv import *
 
 __all__ = [
     'LeNet5', 'AlexNet', 'VGG', 'RegNet', 'ResNet', 'ResNeXt', 'ResNetV1d',

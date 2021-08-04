@@ -5,6 +5,27 @@ from ..builder import NECKS
 
 
 @NECKS.register_module()
+class Identity(nn.Module):
+    def __init__(self):
+        super(Identity, self).__init__()
+
+    def init_weights(self):
+        pass
+
+    def forward(self, inputs):
+        if isinstance(inputs, tuple):
+            outs = tuple([x for x in inputs])
+            outs = tuple(
+                [out.view(x.size(0), -1) for out, x in zip(outs, inputs)])
+        elif isinstance(inputs, torch.Tensor):
+            outs = inputs.view(inputs.size(0), -1)
+        else:
+            raise TypeError('neck inputs should be tuple or torch.tensor')
+        return outs
+
+
+
+@NECKS.register_module()
 class GlobalAveragePooling(nn.Module):
     """Global Average Pooling neck.
 
