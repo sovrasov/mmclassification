@@ -4,7 +4,7 @@ model = dict(
     neck=dict(type='Identity'),
     head=dict(
         type='LinearClsHead',
-        num_classes=1000,
+        num_classes=10450,
         in_channels=1280,
         loss=dict(type='CrossEntropyLoss', loss_weight=1.0),
         topk=(1, 5),
