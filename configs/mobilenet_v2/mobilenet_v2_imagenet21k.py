@@ -1,6 +1,6 @@
 model = dict(
     type='ImageClassifier',
-    backbone=dict(type='mobilenetv2_w1', verbose=False),
+    backbone=dict(type='mobilenetv2_w1', verbose=False, pretrained=True),
     neck=dict(type='Identity'),
     head=dict(
         type='LinearClsHead',
